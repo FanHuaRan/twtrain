@@ -1,9 +1,8 @@
-package com.fhr.twtrain.core;
+package com.fhr.twtrain.service;
 
 import com.fhr.twtrain.domain.TrainNetwork;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**

@@ -1,4 +1,4 @@
-package com.fhr.twtrain.core;
+package com.fhr.twtrain.service;
 
 import java.util.List;
 
