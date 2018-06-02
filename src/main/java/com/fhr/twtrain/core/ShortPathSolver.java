@@ -2,14 +2,13 @@ package com.fhr.twtrain.core;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import  static com.fhr.twtrain.core.GraphConstant.MAX_DIS;
 /**
  * @author FanHuaran
  * @description
  * @create 2018-06-02 18:08
  **/
 public class ShortPathSolver {
-    public static final int MAX_DIS = Integer.MAX_VALUE;
 
     /**
      * 求起点到终点的最短路径

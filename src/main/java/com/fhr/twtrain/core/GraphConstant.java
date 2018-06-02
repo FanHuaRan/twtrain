@@ -1,4 +1,4 @@
-package com.fhr.twtrain.constant;
+package com.fhr.twtrain.core;
 
 /**
  * @author FanHuaran

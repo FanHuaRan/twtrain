@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+import  static com.fhr.twtrain.core.GraphConstant.MAX_DIS;
 
 /**
  * @author FanHuaran
@@ -11,8 +12,6 @@ import java.util.Stack;
  * @create 2018-06-02 17:08
  **/
 public class AllPathSolver {
-
-    public static final int MAX_DIS = Integer.MAX_VALUE;
 
     public  List<List<Integer>> getAllPaths(int[][] cost, int start, int end) {
         if (cost == null || start < 0 || start >= cost.length || end < 0 || end > cost.length) {
@@ -75,6 +74,4 @@ public class AllPathSolver {
         Collections.copy(newPath, path);
         return newPath;
     }
-
-
 }
