@@ -110,6 +110,33 @@ public class GraphAlgorithm {
     }
 
     /**
+     * 计算两点之间的所有路径（不带环）
+     *
+     * @param cost  邻接矩阵
+     * @param start 起点
+     * @param end   终点
+     * @return 所有路径
+     * @see #getDirectPathsCore(int[][], int, int, List, boolean[], List)
+     */
+    public static List<List<Integer>> getDirectPaths(int[][] cost, int start, int end) {
+        // step1 param check
+        if (cost == null || start < 0 || start >= cost.length || end < 0 || end >= cost.length) {
+            throw new IllegalArgumentException("param is illegal");
+        }
+
+        // step2 param prepare
+        List<List<Integer>> totalPaths = new ArrayList<>();
+        List<Integer> currentPath = new ArrayList<>();
+        currentPath.add(start);
+        boolean[] inPaths = new boolean[cost.length];
+
+        // step3 call core-method
+        getDirectPathsCore(cost, start, end, currentPath, inPaths, totalPaths);
+
+        return totalPaths;
+    }
+
+    /**
      * 计算在经过的站最多为maxStops站的情况下，两点之间的所有路径
      *
      * @param cost     邻接矩阵
@@ -188,6 +215,33 @@ public class GraphAlgorithm {
         getEqualsStopsPathsCore(cost, start, end, currentPath, equalsStops, totalPaths);
 
         return totalPaths;
+    }
+
+    /**
+     *  计算两点之间的所有路径（不带环）
+     *
+     * @param cost
+     * @param start
+     * @param end
+     * @param currentPath
+     * @param inPaths
+     * @param totalPaths
+     */
+    private static void getDirectPathsCore(int[][] cost, int start, int end, List<Integer> currentPath, boolean[] inPaths, List<List<Integer>> totalPaths) {
+        if (currentPath.size() > 1 && start == end) {
+            totalPaths.add(clonePath(currentPath));
+        }
+
+        for (int i = 0; i < cost[start].length; i++) {
+            if (cost[start][i] != MAX_DIS && !inPaths[i]) {
+                currentPath.add(i);
+                inPaths[i] = true;
+                getDirectPathsCore(cost, i, end, currentPath, inPaths, totalPaths);
+                currentPath.remove(currentPath.size() - 1);
+                inPaths[i] = false;
+            }
+        }
+
     }
 
     /**
