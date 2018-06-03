@@ -1,4 +1,4 @@
-package com.fhr.twtrain;
+package com.fhr.twtrain.core;
 
 /**
  * Hello world!
