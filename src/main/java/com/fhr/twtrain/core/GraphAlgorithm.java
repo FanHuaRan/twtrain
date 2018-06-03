@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author FanHuaran
- * @description 关于图的核心算法组件
+ * @description 关于图的核心算法组件，最短路径使用迪杰斯特拉算法，求所有路径使用回溯法和递归
  * @create 2018-06-02 22:16
  **/
 public class GraphAlgorithm {
@@ -18,6 +18,8 @@ public class GraphAlgorithm {
 
 
     /**
+     * 求解改定路径下的路径之和
+     *
      * @param cost 邻接矩阵
      * @param path 路径
      * @return 距离和或者null(不可达 ）
@@ -51,6 +53,7 @@ public class GraphAlgorithm {
      * @return 最短路径的距离或者null（路径不可达）
      */
     public static Integer shortPath(int[][] cost, int start, int end) {
+        // param check
         if (cost == null || start < 0 || start >= cost.length || end < 0 || end >= cost.length) {
             throw new IllegalArgumentException("param is illegal");
         }

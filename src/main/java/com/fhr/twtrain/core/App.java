@@ -12,7 +12,7 @@ import java.util.List;
 public class App {
 
     public static void main(String[] args) {
-        try (InputStream inputStream = ClassLoader.getSystemResourceAsStream("input.txt");
+        try (InputStream inputStream = App.class.getClassLoader().getResourceAsStream("input.txt");
              InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
              BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
 
@@ -30,7 +30,8 @@ public class App {
     }
 
     /**
-     *  求解问题
+     * 求解问题
+     *
      * @param input
      */
     private static void handleInput(String input) {
@@ -44,6 +45,7 @@ public class App {
         } else {
             System.out.println("Output #1: " + answer1);
         }
+
         // question 2 : The distance of the route A-D.
         Integer answer2 = GraphAlgorithm.getPathWeight(graphCost, convertNodeNameToIndex(new char[]{'A', 'D'}));
         if (answer2 == null) {
@@ -68,7 +70,7 @@ public class App {
             System.out.println("Output #4: " + answer4);
         }
 
-        // question5 : The distance of the route A -E - D.
+        // question5 : The distance of the route A-E-D.
         Integer answer5 = GraphAlgorithm.getPathWeight(graphCost, convertNodeNameToIndex(new char[]{'A', 'E', 'D'}));
         if (answer5 == null) {
             System.out.println("Output #5: NO SUCH ROUTE");
@@ -138,6 +140,7 @@ public class App {
 
     /**
      * get the stations's count (is must be 5?)
+     *
      * @param graphInfos
      * @return
      */
@@ -154,7 +157,8 @@ public class App {
     }
 
     /**
-     * convert NodeName to Index . NodeName is Char and index is int.
+     * convert NodeName to Index. NodeName is Char and index is int.
+     *
      * @param chars
      * @return
      */

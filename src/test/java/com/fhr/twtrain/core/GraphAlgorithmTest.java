@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.List;
 
 /**
- *
+ * @see GraphAlgorithm
  */
 public class GraphAlgorithmTest {
 
